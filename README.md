@@ -1,2 +1,7 @@
-# dynamic-knn-gpu
-GPU based Dynamic k-Nearest Neighbours - A simple but flexible k-Nearest Neighbours algorithm using TensorFlow with GPU support. The algorithm was designed to work with dynamic attributes such as the number of k neighbours, for each prediction. Achieved a 50x speedup on problems where the neighbourhood size and other model attributes are dynamic for each instance, when compared to other popular implementations, such as the one from Scikit-Learn. In cases where the model attributes are static, other implementations with a fit step are better suited. 
+***
+
+# GPU based Dynamic k-Nearest Neighbours
+
+### Code License
+
+Code is licensed under the Apache License 2.0  
