@@ -2,7 +2,10 @@
 
 # GPU based Dynamic k-Nearest Neighbours
 
-I built a relatively simple implementation of a Dynamic k-NN using TensorFlow with GPU support. (it can also run on the CPU)
+I built a relatively simple implementation of a Dynamic k-NN using TensorFlow with GPU support. 
+
+![knn](https://raw.githubusercontent.com/artifabrian/dynamic-knn-gpu/master/knn.png)
+from [datacamp](https://www.datacamp.com/community/tutorials/k-nearest-neighbor-classification-scikit-learn)
 
 >In k-NN classification, the output is a class membership. An object is classified by a majority vote of its neighbors, >with the object being assigned to the class most common among its k nearest neighbors (k is a positive integer, >typically small). If k = 1, then the object is simply assigned to the class of that single nearest neighbor.
 
