@@ -12,11 +12,15 @@ from [datacamp](https://www.datacamp.com/community/tutorials/k-nearest-neighbor-
 from [wikipedia](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm)
 
 A dynamic k-NN allows for some parameters (such as the k parameter) to be defined on a per instance basis, instead of being fixed in the model.
-This can be useful in cases where the k is influenceed by some independent variable.
+This can be useful in cases where the k is influenceed by some independent variable or whenever you need to add new training instances without requiring a fit step to your model.
 
 Note: running TensorFlow on GPU is formally supported for only NVIDIA cards (CUDA backend).
 
 ### Benchmark Results
+
+For more detailed information abuot the benchmark check out the [notebook with the experimental information.](https://github.com/artifabrian/dynamic-knn-gpu/blob/master/notebooks-exploration/dynamic-knn-experimental.ipynb)
+
+These were done on a laptop with a GTX 870m, the results could've been even better with a faster GPU.
 
 | TF GPU speedup over TF CPU: |
 |-----------------------------|
@@ -25,23 +29,16 @@ Note: running TensorFlow on GPU is formally supported for only NVIDIA cards (CUD
 
 On large datasets, the GPU gains are more noticeable, however, even on a laptop, with a low powered GPU, the GPU performance gain can be around 40%.
    
-| TF GPU speedup over Scikit CPU: |
+| TF GPU speedup over Scikit CPU (dynamic k): |
 |---------------------------------|
 | 50x        |
 
 
 As seen above, the results are quite favorable towards the k-NN implementation using TensorFlow with GPU support.
-This makes it a great solution if we are dealing with any problem where a dynamic k value is needed.
-But what about when the k is static?
 
-| TF GPU speedup over Scikit CPU (using static k): |
-|--------------------------------------------------|
-| 0.7x                      |
+In the scenario where the k is static or when no new training instances are introduced this implementation of k-NN using TensorFlow with GPU support can be around 20% slower than the Scikit implementation (assuming you are using their efficient implementation with Ball Tree). However, this is also the worst scenario for this model and with a better GPU this difference might decrease.
 
-
-In this scenario, this implementation of k-NN using TensorFlow with GPU support is actually around 20-30% slower than the Scikit implementation.
-However, this is also the worst scenario for this implementation and with a better GPU this difference might decrease. 
-In any case, it's impressive that we can obtain such results for such a naíve/simple implementation and there's a lot of room for improvement!
+In any case, it's impressive that we can obtain such results for such a simple implementation!
 
 ### Dependencies
 * [TensorFlow](https://www.tensorflow.org/) >= 1.11
